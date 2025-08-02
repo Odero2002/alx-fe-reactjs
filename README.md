@@ -1,29 +1,16 @@
-// src/App.jsx
-import React from 'react';
-import './App.css';
+# ALX React App
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>GitHub User Search</h1>
-      </header>
-    </div>
-  );
-}
+## Description
 
-export default App;
-// src/services/githubApi.js
-import axios from 'axios';
+This is a React application created using Vite. It serves as a starting point for building modern web applications with React.
 
-const API_KEY = import.meta.env.VITE_APP_GITHUB_API_KEY;
-const API_URL = 'https://api.github.com';
+## Installation
 
-export const searchUsers = async (query) => {
-  const response = await axios.get(`${API_URL}/search/users?q=${query}`, {
-    headers: {
-      Authorization: `token ${API_KEY}`
-    }
-  });
-  return response.data;
-};
+To get started with this project, follow these steps:
+
+1. **Clone the repository:**
+
+   ```sh
+   git clone https://github.com/your-username/alx-fe-reactjs.git
+   cd alx-fe-reactjs/alx-react-app
+
