@@ -1,4 +1,5 @@
-function WelcomeMessage() {src/components/WelcomeMessage.jsx
+function WelcomeMessage() 
+{src/components/WelcomeMessage.jsx
     return (
         <div>
             <h1>Hello everyone, I am learning React at ALX!</h1>
