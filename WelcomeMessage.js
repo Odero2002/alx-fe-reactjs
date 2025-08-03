@@ -10,3 +10,28 @@ function WelcomeMessage()
 }
 
 export default WelcomeMessage;
+import WelcomeMessage from './components/WelcomeMessage';
+
+function App() {
+  return (
+    <div className="App">
+      <WelcomeMessage />
+    </div>
+  );
+}
+
+export default App;
+alx-react-app/
+├── node_modules/
+├── public/
+├── src/
+│   ├── components/
+│   │   └── WelcomeMessage.jsx
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+├── package.json
+├── vite.config.js
+└── ...
