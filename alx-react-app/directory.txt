@@ -1,0 +1,14 @@
+alx-react-app
+├── src
+│   ├── App.jsx
+│   ├── Header.jsx
+│   ├── MainContent.jsx
+│   ├── Footer.jsx
+│   ├── main.jsx
+│   ├── App.css
+│   └── index.css
+├── public
+│   └── vite.svg
+├── package.json
+├── vite.config.js
+└── README.md
