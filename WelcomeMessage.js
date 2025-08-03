@@ -1,5 +1,5 @@
 function WelcomeMessage() 
-{src/components/WelcomeMessage.jsx
+{
     return (
         <div>
             <h1>Hello everyone, I am learning React at ALX!</h1>
@@ -16,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <WelcomeMessage />
+      src/components/WelcomeMessage.jsx
     </div>
   );
 }
