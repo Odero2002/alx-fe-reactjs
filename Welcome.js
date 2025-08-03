@@ -3,7 +3,8 @@ import WelcomeMessage from './components/WelcomeMessage';
 function App() {
     return (
         <div>
-            <WelcomeMessage />src/components/WelcomeMessage.jsx
+            <WelcomeMessage /> 
+            src/components/WelcomeMessage.jsx
         </div>
     );
 }
