@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import WelcomeMessage from './components/WelcomeMessage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           This is a simple React application created using Vite.
         </p>
       </header>
+      <WelcomeMessage />
     </div>
   );
 }

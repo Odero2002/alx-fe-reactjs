@@ -1,15 +1,3 @@
-import WelcomeMessage from 'src/components/WelcomeMessage.jsx';
-
-function App() {
-    return (
-        <div>
-            <WelcomeMessage />
-        </div>
-    );
-}
-
-export default App;
-
 function WelcomeMessage() {
     return (
         <div>
