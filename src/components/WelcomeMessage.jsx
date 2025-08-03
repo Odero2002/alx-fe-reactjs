@@ -1,9 +1,9 @@
-import WelcomeMessage from './components/WelcomeMessage';
+import WelcomeMessage from 'src/components/WelcomeMessage.jsx';
 
 function App() {
     return (
         <div>
-            <            npm run devWelcomeMessage />
+            <WelcomeMessage />
         </div>
     );
 }
