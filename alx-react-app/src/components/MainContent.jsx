@@ -1,5 +1,5 @@
 import MainContent from './components/MainContent';
-
+["style"
 function App() {
     return (
         <div>
