@@ -1,50 +1,52 @@
 
-// src/components/Search.jsx
 import React, { useState } from 'react';
-import { fetchUserData } from '../services/githubService';
 
-const Search = () => {
+const Search = ({ onSearch }) => {
   const [username, setUsername] = useState('');
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [location, setLocation] = useState('');
+  const [minRepos, setMinRepos] = useState('');
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await fetchUserData(username);
-      setUserData(data);
-    } catch (err) {
-      setError('Looks like we cant find the user');
-    } finally {
-      setLoading(false);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch({ username, location, minRepos });
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="space-y-4 p-4 bg-white shadow-md rounded-lg">
+      <div>
+        <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
         <input
           type="text"
+          id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="Enter GitHub username"
-          required
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
         />
-        <button type="submit">Search</button>
-      </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {userData && (
-        <div>
-          <img src={userData.avatar_url} alt="User Avatar" width="100" />
-          <h2>{userData.name || userData.login}</h2>
-          <p><a href={userData.html_url} target="_blank" rel="noopener noreferrer">View Profile</a></p>
-        </div>
-      )}
-    </div>
+      </div>
+      <div>
+        <label htmlFor="location" className="block text-sm font-medium text-gray-700">Location</label>
+        <input
+          type="text"
+          id="location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+        />
+      </div>
+      <div>
+        <label htmlFor="minRepos" className="block text-sm font-medium text-gray-700">Minimum Repositories</label>
+        <input
+          type="number"
+          id="minRepos"
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+        />
+      </div>
+      <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">
+        Search
+      </button>
+    </form>
   );
 };
 
