@@ -59,7 +59,13 @@ const Search = ({ onSearch }) => {
           <ul>
             {searchResults.map((result, index) => (
               <li key={index} className="p-2 border-b border-gray-200">
-                {result.login} - Repos: {result.repos || 'N/A'}
+                <div>
+                  <span className="font-medium">{result.login}</span> - Repos: {result.repos || 'N/A'}
+                </div>
+                {/* Include html_url as a clickable link */}
+                <a href={result.html_url} className="text-blue-500 hover:underline text-sm">
+                  View Profile
+                </a>
               </li>
             ))}
           </ul>
