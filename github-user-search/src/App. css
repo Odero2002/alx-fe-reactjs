@@ -1,0 +1,28 @@
+/* src/App.css */
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #282c34;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

@@ -1,5 +1,6 @@
 // src/App.jsx
 import React from 'react';
+import SearchBar from './components/SearchBar';
 import './App.css';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
         <h1>GitHub User Search</h1>
       </header>
       <main>
-        {/* Your components will go here */}
+        <SearchBar />
       </main>
     </div>
   );
