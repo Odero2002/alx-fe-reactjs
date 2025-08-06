@@ -1,7 +1,7 @@
 // MainContent.jsx
 import React from 'react';
 
-const MainContent = ("style") => {
+const MainContent = (style) => {
   return (
     <main style={{ padding: '20px', backgroundColor: '#f4f4f4' }}>
       <h2 style={{ color: 'green' }}>Welcome to My Favorite Cities</h2>
