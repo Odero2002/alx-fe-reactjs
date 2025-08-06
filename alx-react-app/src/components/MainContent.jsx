@@ -1,3 +1,16 @@
+import MainContent from './components/MainContent';
+
+function App() {
+    return (
+        <div>
+            <MainContent />
+        </div>
+    );
+}
+
+export default App;
+
+
 function MainContent() {
     return (
         <main style={{ backgroundColor: '#f9f9f9', padding: '20px', textAlign: 'center' }}>
