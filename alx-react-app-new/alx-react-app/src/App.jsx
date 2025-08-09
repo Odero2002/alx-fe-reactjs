@@ -1,12 +1,12 @@
-
 import React from 'react';
-import Counter from './components/Counter';
+import Counter from './components/Counter'; // Counter import
+import './App.css';
 
 function App() {
   return (
     <div className="App">
       <h1>Counter Application</h1>
-      <Counter />
+      <Counter /> {/* Counter component */}
     </div>
   );
 }
