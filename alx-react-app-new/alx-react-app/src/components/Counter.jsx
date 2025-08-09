@@ -1,15 +1,31 @@
 import React, { useState } from 'react';
 
 const Counter = () => {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-    return (
-        <div style={{ textAlign: 'center', margin: '20px' }}>
-            <h2>Counter: {count}</h2>
-            <button style={{ margin: '5px', padding: '10px' }} onClick={() => setCount(count + 1)}>Increase</button>
-            <button style={{ margin: '5px', padding: '10px' }} onClick={() => setCount(count - 1)}>Decrease</button>
-        </div>
-    );
+  return (
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      <p>Current Count: {count}</p>
+      <button
+        onClick={() => setCount(count + 1)}
+        style={{ margin: '5px', padding: '5px 10px' }}
+      >
+        Increment
+      </button>
+      <button
+        onClick={() => setCount(count - 1)}
+        style={{ margin: '5px', padding: '5px 10px' }}
+      >
+        Decrement
+      </button>
+      <button
+        onClick={() => setCount(0)}
+        style={{ margin: '5px', padding: '5px 10px' }}
+      >
+        Reset
+      </button>
+    </div>
+  );
 };
 
 export default Counter;
