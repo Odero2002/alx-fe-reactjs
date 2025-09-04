@@ -1,13 +1,10 @@
-// src/UserDetails.jsx
-import { useContext, useState } from 'react';
-import UserContext from './UserContext';
+import { useState } from 'react';
 
-function UserDetails() {
-  const userData = useContext(UserContext);
+function Contact() {
   const [formData, setFormData] = useState({
-    name: userData.name || '',
-    email: userData.email || '',
-    message: '',
+    name: '',
+    email: '',
+    message: ''
   });
 
   const handleChange = (e) => {
@@ -20,16 +17,16 @@ function UserDetails() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px', textAlign: 'center' }}>
       <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: '0 auto' }}>
         <input
           type="text"
           name="name"
           placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
-          style={{ display: 'block', margin: '10px 0' }}
+          style={{ display: 'block', margin: '10px auto', width: '100%', padding: '8px' }}
         />
         <input
           type="email"
@@ -37,19 +34,19 @@ function UserDetails() {
           placeholder="Your Email"
           value={formData.email}
           onChange={handleChange}
-          style={{ display: 'block', margin: '10px 0' }}
+          style={{ display: 'block', margin: '10px auto', width: '100%', padding: '8px' }}
         />
         <textarea
           name="message"
           placeholder="Your Message"
           value={formData.message}
           onChange={handleChange}
-          style={{ display: 'block', margin: '10px 0' }}
+          style={{ display: 'block', margin: '10px auto', width: '100%', padding: '8px' }}
         />
-        <button type="submit">Send Message</button>
+        <button type="submit" style={{ padding: '8px 16px', marginTop: '10px' }}>Send Message</button>
       </form>
     </div>
   );
 }
 
-export default UserDetails;
+export default Contact;
