@@ -9,7 +9,9 @@ const MainContent = () => {
       boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
     }}>
       <h2 style={{ color: 'green', marginBottom: '10px' }}>Welcome to My Favorite Cities</h2>
-      <p style={{ fontSize: '16px', marginBottom: '12px' }}>I love to visit New York, Paris, and Tokyo.</p>
+      <p style={{ fontSize: '16px', marginBottom: '12px' }}>
+        I love to visit New York, Paris, and Tokyo.
+      </p>
       <ul style={{ listStyleType: 'none', padding: 0 }}>
         <li style={{
           padding: '8px',
@@ -17,7 +19,7 @@ const MainContent = () => {
           margin: '5px 0',
           borderRadius: '6px',
           boxShadow: '0 1px 4px rgba(0,0,0,0.05)'
-        }}>I love to visit New York, Paris, and Tokyo.</li>
+        }}>New York</li>
         <li style={{
           padding: '8px',
           backgroundColor: 'white',
@@ -31,7 +33,7 @@ const MainContent = () => {
           margin: '5px 0',
           borderRadius: '6px',
           boxShadow: '0 1px 4px rgba(0,0,0,0.05)'
-        }}>I love to visit New York, Paris, and Tokyo.</li>
+        }}>Tokyo</li>
       </ul>
     </main>
   );
