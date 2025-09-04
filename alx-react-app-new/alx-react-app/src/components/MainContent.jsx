@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const MainContent = () => {
+  const [count, setCount] = useState(0);
+
   return (
     <main style={{
       padding: '20px',
@@ -11,7 +13,7 @@ const MainContent = () => {
       <h2 style={{ color: 'green', marginBottom: '10px' }}>Welcome to My Favorite Cities</h2>
       <p style={{ fontSize: '16px', marginBottom: '12px' }}>
         I love to visit New York, Paris, and Tokyo.
-      
+      </p>
       <ul style={{ listStyleType: 'none', padding: 0 }}>
         <li style={{
           padding: '8px',
@@ -35,6 +37,12 @@ const MainContent = () => {
           boxShadow: '0 1px 4px rgba(0,0,0,0.05)'
         }}>Tokyo</li>
       </ul>
+      <div>
+        <p>Current Count: {count}</p>
+        <button onClick={() => setCount(count + 1)}>Increment</button>
+        <button onClick={() => setCount(count - 1)}>Decrement</button>
+        <button onClick={() => setCount(0)}>Reset</button>
+      </div>
     </main>
   );
 };
