@@ -11,7 +11,7 @@ const MainContent = () => {
       <h2 style={{ color: 'green', marginBottom: '10px' }}>Welcome to My Favorite Cities</h2>
       <p style={{ fontSize: '16px', marginBottom: '12px' }}>
         I love to visit New York, Paris, and Tokyo.
-      </p>
+      
       <ul style={{ listStyleType: 'none', padding: 0 }}>
         <li style={{
           padding: '8px',
