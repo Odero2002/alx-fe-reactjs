@@ -17,7 +17,7 @@ const MainContent = () => {
           margin: '5px 0',
           borderRadius: '6px',
           boxShadow: '0 1px 4px rgba(0,0,0,0.05)'
-        }}>New York</li>
+        }}>I love to visit New York, Paris, and Tokyo.</li>
         <li style={{
           padding: '8px',
           backgroundColor: 'white',
