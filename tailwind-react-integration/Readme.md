@@ -2,30 +2,61 @@
 
 This project demonstrates how to set up and use Tailwind CSS in a React application created with Vite.
 
-## Features
+## Setup Instructions
 
-- Tailwind CSS utility-first styling
-- Responsive design
-- Interactive components
-- Example: Recipe List and Add Recipe Form
+### 1. Create a New React Project
 
-## Getting Started
+```sh
+npm create vite@latest tailwind-react-integration -- --template react
+cd tailwind-react-integration
+```
 
-1. Install dependencies:
-   ```
-   npm install
-   ```
+### 2. Install Tailwind CSS and Its Dependencies
 
-2. Start the development server:
-   ```
-   npm run dev
-   ```
+```sh
+npm install tailwindcss @tailwindcss/vite
+```
+
+### 3. Configure the Vite Plugin
+
+Edit `vite.config.js`:
+
+```js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(),
+  ],
+})
+```
+
+### 4. Include Tailwind in Your CSS
+
+Edit `src/index.css`:
+
+```css
+@import "tailwindcss";
+```
+
+### 5. Verify Installation
+
+Start your React application:
+
+```sh
+npm run dev
+```
+
+You should see the default React application rendered with no errors, indicating that Tailwind CSS is now integrated.
 
 ## Project Structure
 
 - `src/App.jsx`: Main React component
-- `src/components/RecipeList.jsx`: Recipe list component
-- `src/components/AddRecipeForm.jsx`: Add recipe form component
+- `vite.config.js`: Vite configuration with Tailwind plugin
+- `src/index.css`: Tailwind CSS import
 
 ## License
 
