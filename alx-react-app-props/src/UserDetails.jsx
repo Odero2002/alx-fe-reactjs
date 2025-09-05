@@ -1,53 +1,13 @@
-// src/UserDetails.jsx
-import { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import UserContext from './UserContext';
 
 function UserDetails() {
   const userData = useContext(UserContext);
-  const [formData, setFormData] = useState({
-    name: userData.name || '',
-    email: userData.email || '',
-    message: '',
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Form submitted!');
-  };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          style={{ display: 'block', margin: '10px 0' }}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          style={{ display: 'block', margin: '10px 0' }}
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          style={{ display: 'block', margin: '10px 0' }}
-        />
-        <button type="submit">Send Message</button>
-      </form>
+    <div>
+      <p>Name: {userData.name}</p>
+      <p>Email: {userData.email}</p>
     </div>
   );
 }
