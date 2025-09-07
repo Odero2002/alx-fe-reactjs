@@ -142,3 +142,42 @@ async function fetchUserData() {
 
 // Invoke fetchUserData on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', fetchUserData);
+````
+
+# GitHub User Search Application
+
+This project allows you to search for GitHub users and view their basic profile information using the GitHub API.
+
+## Features
+
+- Search for GitHub users by username
+- View avatar, name, and profile link
+- Handles loading and error states
+
+## Setup Instructions
+
+1. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+
+2. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
+
+## Usage
+
+- Enter a GitHub username in the search box and click "Search".
+- If the user exists, their avatar, name, and profile link will be displayed.
+- If loading, a "Loading..." message appears.
+- If the user is not found, an error message is shown.
+
+## Project Structure
+
+- `src/components/Search.jsx`: Search component and results display
+- `src/services/githubService.js`: API integration logic
+
+## License
+
+MIT
