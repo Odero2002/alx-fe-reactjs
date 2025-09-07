@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
 
 function RegistrationForm() {
-  const [form, setForm] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form.username || !form.email || !form.password) {
+    if (!username || !email || !password) {
       setError('All fields are required.');
       return;
     }
@@ -30,24 +24,24 @@ function RegistrationForm() {
         type="text"
         name="username"
         placeholder="Username"
-        value={form.username}
-        onChange={handleChange}
+        value={username}
+        onChange={e => setUsername(e.target.value)}
         style={{ display: 'block', margin: '10px 0', width: '100%' }}
       />
       <input
         type="email"
         name="email"
         placeholder="Email"
-        value={form.email}
-        onChange={handleChange}
+        value={email}
+        onChange={e => setEmail(e.target.value)}
         style={{ display: 'block', margin: '10px 0', width: '100%' }}
       />
       <input
         type="password"
         name="password"
         placeholder="Password"
-        value={form.password}
-        onChange={handleChange}
+        value={password}
+        onChange={e => setPassword(e.target.value)}
         style={{ display: 'block', margin: '10px 0', width: '100%' }}
       />
       {error && <p style={{ color: 'red' }}>{error}</p>}
