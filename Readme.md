@@ -181,3 +181,121 @@ This project allows you to search for GitHub users and view their basic profile 
 ## License
 
 MIT
+
+# Registration Form Component
+
+This is a simple registration form component built with React.
+
+## Features
+
+- Controlled form inputs for username, email, and password
+- Basic client-side validation
+- Submission handler with success message
+
+## Installation and Usage
+
+1. **Clone the repository:**
+   ```sh
+   git clone <repository-url>
+   ```
+
+2. **Navigate to the project directory:**
+   ```sh
+   cd <project-directory>
+   ```
+
+3. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+
+4. **Start the development server:**
+   ```sh
+   npm start
+   ```
+
+5. **Access the application:**
+   Open your browser and go to `http://localhost:3000`.
+
+## Component Structure
+
+- `RegistrationForm`: Main component for the registration form
+
+## License
+
+MIT
+
+```javascript
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object({
+  username: Yup.string().required('Required'),
+  email: Yup.string().email('Invalid email').required('Required'),
+  password: Yup.string().required('Required')
+});
+
+function FormikForm() {
+  return (
+    <Formik
+      initialValues={{ username: '', email: '', password: '' }}
+      validationSchema={validationSchema}
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        alert('Registration successful!');
+        setSubmitting(false);
+        resetForm();
+        // Simulate API call here
+      }}
+    >
+      {({ isSubmitting }) => (
+        <Form style={{ maxWidth: 400, margin: '0 auto', padding: 20 }}>
+          <h2>Register (Formik)</h2>
+          <Field
+            type="text"
+            name="username"
+            placeholder="Username"
+            style={{ display: 'block', margin: '10px 0', width: '100%' }}
+          />
+          <ErrorMessage name="username" component="div" style={{ color: 'red' }} />
+          <Field
+            type="email"
+            name="email"
+            placeholder="Email"
+            style={{ display: 'block', margin: '10px 0', width: '100%' }}
+          />
+          <ErrorMessage name="email" component="div" style={{ color: 'red' }} />
+          <Field
+            type="password"
+            name="password"
+            placeholder="Password"
+            style={{ display: 'block', margin: '10px 0', width: '100%' }}
+          />
+          <ErrorMessage name="password" component="div" style={{ color: 'red' }} />
+          <button type="submit" disabled={isSubmitting} style={{ padding: '8px 16px' }}>
+            Register
+          </button>
+        </Form>
+      )}
+    </Formik>
+  );
+}
+
+export default FormikForm;
+```
+```javascript
+import React from 'react';
+import RegistrationForm from './components/RegistrationForm';
+import FormikForm from './components/formikForm';
+
+function App() {
+  return (
+    <div>
+      <RegistrationForm />
+      <FormikForm />
+    </div>
+  );
+}
+
+export default App;
+```
