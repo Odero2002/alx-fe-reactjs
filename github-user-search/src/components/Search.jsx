@@ -1,98 +1,48 @@
 import React, { useState } from 'react';
+import { fetchUserData } from '../services/githubService';
 
 const Search = () => {
   const [username, setUsername] = useState('');
-  const [location, setLocation] = useState('');
-  const [minRepos, setMinRepos] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  // Function to fetch user data based on search criteria
-  const fetchUserData = async ({ username, location, minRepos }) => {
-    try {
-      // Construct the query string for the GitHub API
-      let query = username;
-      if (location) query += `+location:${location}`;
-      if (minRepos) query += `+repos:>=${minRepos}`;
-
-      // Fetch data from GitHub API
-      const response = await fetch(`https://api.github.com/search/users?q=${query}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-
-      // Extract and return relevant user information
-      return data.items.map(user => ({
-        login: user.login,
-        repos: user.public_repos,
-        html_url: user.html_url
-      }));
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-      return [];
-    }
-  };
+  const handleChange = (e) => setUsername(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Use fetchUserData to get search results
-    const results = await fetchUserData({ username, location, minRepos });
-    setSearchResults(results);
+    setLoading(true);
+    setError('');
+    setUser(null);
+    try {
+      const data = await fetchUserData(username);
+      setUser(data);
+    } catch {
+      setError('Looks like we cant find the user');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="space-y-4 p-4 bg-white shadow-md rounded-lg">
-        <div>
-          <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-          />
-        </div>
-        <div>
-          <label htmlFor="location" className="block text-sm font-medium text-gray-700">Location</label>
-          <input
-            type="text"
-            id="location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-          />
-        </div>
-        <div>
-          <label htmlFor="minRepos" className="block text-sm font-medium text-gray-700">Minimum Repositories</label>
-          <input
-            type="number"
-            id="minRepos"
-            value={minRepos}
-            onChange={(e) => setMinRepos(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-          />
-        </div>
-        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">
-          Search
-        </button>
+    <div style={{ padding: '20px', maxWidth: '400px', margin: '0 auto' }}>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={username}
+          onChange={handleChange}
+          placeholder="Enter GitHub username"
+          style={{ padding: '8px', width: '100%', marginBottom: '10px' }}
+        />
+        <button type="submit" style={{ padding: '8px 16px' }}>Search</button>
       </form>
-
-      {searchResults.length > 0 && (
-        <div className="mt-4 p-4 bg-gray-100 rounded-lg">
-          <h2 className="text-lg font-medium mb-2">Search Results</h2>
-          <ul>
-            {searchResults.map((result, index) => (
-              <li key={index} className="p-2 border-b border-gray-200">
-                <div>
-                  <span className="font-medium">{result.login}</span> - Repos: {result.repos || 'N/A'}
-                </div>
-                <a href={result.html_url} className="text-blue-500 hover:underline text-sm">
-                  View Profile
-                </a>
-              </li>
-            ))}
-          </ul>
+      {loading && <p>Loading...</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {user && (
+        <div style={{ marginTop: '20px', textAlign: 'center' }}>
+          <img src={user.avatar_url} alt={user.login} width={80} style={{ borderRadius: '50%' }} />
+          <h3>{user.name || user.login}</h3>
+          <a href={user.html_url} target="_blank" rel="noopener noreferrer">View Profile</a>
         </div>
       )}
     </div>
