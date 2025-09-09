@@ -8,6 +8,3 @@ function ProtectedRoute({ isAuthenticated, children }) {
 }
 
 export default ProtectedRoute;
-
-<Route path="details" element={<ProfileDetails />} />
-<Route path="settings" element={<ProfileSettings />} />
