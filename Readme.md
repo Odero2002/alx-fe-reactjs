@@ -1,52 +1,58 @@
-## React Query Demo
+# Recipe Sharing Platform
 
-This project demonstrates advanced data fetching, caching, and updating in React using React Query and the JSONPlaceholder API.
+## Objective
+Begin building a Recipe Sharing Platform using React and Tailwind CSS. This task focuses on setting up the project foundation, including the creation of the React app, installing Tailwind CSS, and preparing a clean workspace for further development.
 
-### Objective
+## Project Overview
+The Recipe Sharing Platform will allow users to browse, add, and share recipes. It will feature multiple pages including a home page with a list of recipes, a detailed view for individual recipes, and a form to submit new recipes.
 
-Implement advanced data fetching and management in a React application using React Query, focusing on efficient API interactions and improved UI responsiveness.
+## Task Description
+Start by setting up a new React project integrated with Tailwind CSS. This initial setup lays the groundwork for developing a responsive and visually appealing application.
 
-## Features
+## Step 1: Create a New React Project
+### React Project Setup
+Open your terminal and set up a new React application:
+```sh
+npm create vite@latest recipe-sharing-platform -- --template react
+cd recipe-sharing-platform
+```
 
-- Fetches posts from [JSONPlaceholder](https://jsonplaceholder.typicode.com/posts)
-- Caches data for 5 minutes to reduce API calls
-- Manual refetch button to update posts
-- Handles loading and error states
+## Step 2: Install and Configure Tailwind CSS
+### Tailwind CSS Installation
+Add Tailwind CSS and its dependencies to your project:
+```sh
+npm install -D tailwindcss postcss autoprefixer
+```
+Set up Tailwind CSS using the Tailwind CLI:
+```sh
+npx tailwindcss init -p
+```
+Modify the `tailwind.config.js` to enable purging of unused styles in production builds:
+```javascript
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  darkMode: false, // You can set it to 'media' or 'class' if needed
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+Configure your project to include Tailwind in your CSS. Add this to `src/index.css`:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-## API Details
+## Step 3: Verify Tailwind CSS Integration
+### Test Tailwind CSS Setup
+Run your React application to ensure Tailwind CSS is integrated correctly:
+```sh
+npm run dev
+```
+Check the browser to see if the app loads without any errors and Tailwind’s styles are applied (you can test by adding a Tailwind utility class like `text-blue-500` to a component).
 
-- **Endpoint:** `https://jsonplaceholder.typicode.com/posts`
-- **Usage:** Fetches a list of posts for demonstration and practice.
-
-## Setup
-
-1. Install dependencies:
-   ```sh
-   npm install
-   ```
-
-2. Start the development server:
-   ```sh
-   npm run dev
-   ```
-
-## Usage
-
-- Posts are loaded and cached automatically.
-- Click "Refetch Posts" to manually update the data.
-- Loading and error messages are displayed as needed.
-
-## Project Structure
-
-- `src/App.jsx`: Main app setup with React Query provider
-- `src/components/PostsComponent.jsx`: Data fetching and display logic
-
-## Testing and Evaluation
-
-- Use React Developer Tools and React Query Devtools to inspect cache and query status.
-- Check browser network requests to confirm caching reduces API calls.
-- Navigate away and return to the posts page to observe cached data loading.
-
-## License
-
-MIT
+## Repo
+GitHub repository: alx-fe-reactjs
+Directory: recipe-sharing-platform
