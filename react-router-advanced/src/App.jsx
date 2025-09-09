@@ -19,16 +19,13 @@ function App() {
         <Routes>
           <Route path="/" element={<h1>Home Page</h1>} />
           <Route
-            path="/profile"
+            path="/profile/*"
             element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
                 <Profile />
               </ProtectedRoute>
             }
-          >
-            <Route path="details" element={<ProfileDetails />} />
-            <Route path="settings" element={<ProfileSettings />} />
-          </Route>
+          />
           <Route path="/post/:postId" element={<BlogPost />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
