@@ -27,7 +27,7 @@ describe('TodoApp', () => {
     fireEvent.click(addButton);
 
     const todoItem = screen.getByText('Learn React Testing');
-    const checkbox = todoItem.previousElementSibling.querySelector('input[type="checkbox"]');
+    const checkbox = todoItem.previousElementSibling;
 
     fireEvent.click(checkbox);
     expect(checkbox).toBeChecked();
