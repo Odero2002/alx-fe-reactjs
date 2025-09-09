@@ -26,7 +26,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/post/:postId" element={<BlogPost />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
