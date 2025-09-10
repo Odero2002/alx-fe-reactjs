@@ -1,9 +1,11 @@
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, test, expect, vi } from 'vitest';
 import TodoItem from './TodoItem';
 
 describe('TodoItem', () => {
-  const mockToggleTodo = jest.fn();
-  const mockDeleteTodo = jest.fn();
+  const mockToggleTodo = vi.fn();
+  const mockDeleteTodo = vi.fn();
 
   const incompleteTodo = { id: 1, text: 'Learn React', completed: false };
   const completedTodo = { id: 2, text: 'Build a Todo App', completed: true };

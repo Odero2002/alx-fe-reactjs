@@ -3,15 +3,15 @@ import TodoList from './TodoList';
 import TodoItem from './TodoItem';
 
 // Mock the TodoItem component to simplify testing TodoList
-jest.mock('./TodoItem', () => {
-  return jest.fn((props) => (
+vi.mock('./TodoItem', () => ({
+  default: vi.fn((props) => (
     <li data-testid="todo-item">{props.todo.text}</li>
-  ));
-});
+  )),
+}));
 
 describe('TodoList', () => {
-  const mockToggleTodo = jest.fn();
-  const mockDeleteTodo = jest.fn();
+  const mockToggleTodo = vi.fn();
+  const mockDeleteTodo = vi.fn();
 
   const todos = [
     { id: 1, text: 'Learn React', completed: false },

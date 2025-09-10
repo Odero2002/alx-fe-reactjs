@@ -1,4 +1,6 @@
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, test, expect, vi } from 'vitest';
 import TodoForm from './TodoForm';
 
 describe('TodoForm', () => {
@@ -9,7 +11,7 @@ describe('TodoForm', () => {
   });
 
   test('calls addTodo with the input value when form is submitted', () => {
-    const mockAddTodo = jest.fn();
+    const mockAddTodo = vi.fn();
     render(<TodoForm addTodo={mockAddTodo} />);
 
     const inputElement = screen.getByPlaceholderText('Add a new todo');
@@ -24,7 +26,7 @@ describe('TodoForm', () => {
   });
 
   test('does not call addTodo if input is empty', () => {
-    const mockAddTodo = jest.fn();
+    const mockAddTodo = vi.fn();
     render(<TodoForm addTodo={mockAddTodo} />);
 
     const addButton = screen.getByRole('button', { name: 'Add Todo' });
