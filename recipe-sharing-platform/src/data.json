@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://via.placeholder.com/150/FF0000/FFFFFF?text=Recipe+1",
+    "ingredients": ["Spaghetti", "Eggs", "Pancetta", "Parmesan Cheese", "Black Pepper"],
+    "instructions": [
+      "Cook spaghetti according to package directions.",
+      "Fry pancetta until crispy.",
+      "Whisk eggs, grated Parmesan, and black pepper.",
+      "Combine hot spaghetti with egg mixture and pancetta.",
+      "Serve immediately."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Recipe+2",
+    "ingredients": ["Chicken", "Onion", "Garlic", "Ginger", "Tomatoes", "Curry Powder", "Coconut Milk"],
+    "instructions": [
+      "Sauté onions, garlic, and ginger.",
+      "Add chicken and brown.",
+      "Stir in tomatoes and curry powder.",
+      "Pour in coconut milk and simmer until chicken is cooked through.",
+      "Serve with rice."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Vegetable Lasagna",
+    "summary": "Layers of pasta, rich tomato sauce, and a variety of fresh vegetables, baked to perfection.",
+    "image": "https://via.placeholder.com/150/0000FF/FFFFFF?text=Recipe+3",
+    "ingredients": ["Lasagna Noodles", "Ricotta Cheese", "Spinach", "Marinara Sauce", "Mozzarella Cheese"],
+    "instructions": [
+      "Preheat oven to 375°F (190°C).",
+      "Cook lasagna noodles al dente.",
+      "Layer noodles, ricotta mixture, spinach, and marinara sauce in a baking dish.",
+      "Top with mozzarella cheese.",
+      "Bake for 30 minutes, or until bubbly and golden."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Beef Stir-Fry",
+    "summary": "Quick and easy stir-fry with tender beef strips and crisp vegetables in a savory sauce.",
+    "image": "https://via.placeholder.com/150/FFFF00/000000?text=Recipe+4",
+    "ingredients": ["Beef Strips", "Broccoli", "Carrots", "Bell Peppers", "Soy Sauce", "Ginger", "Garlic"],
+    "instructions": [
+      "Heat oil in a large skillet or wok.",
+      "Add beef and stir-fry until browned.",
+      "Add vegetables and stir-fry until tender-crisp.",
+      "Stir in soy sauce, ginger, and garlic.",
+      "Serve immediately with rice."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Chocolate Lava Cake",
+    "summary": "A decadent dessert with a molten chocolate center, perfect for any occasion.",
+    "image": "https://via.placeholder.com/150/FF00FF/FFFFFF?text=Recipe+5",
+    "ingredients": ["Dark Chocolate", "Butter", "Eggs", "Sugar", "Flour"],
+    "instructions": [
+      "Preheat oven to 425°F (220°C).",
+      "Melt chocolate and butter together.",
+      "Whisk eggs and sugar until light.",
+      "Fold in flour and chocolate mixture.",
+      "Pour into ramekins and bake for 12-14 minutes.",
+      "Serve warm with ice cream."
+    ]
+  }
+]
