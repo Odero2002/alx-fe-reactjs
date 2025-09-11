@@ -11,9 +11,9 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 bg-white rounded-lg shadow-lg">
       <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">Welcome to the Recipe Sharing Platform!</h1>
-      <div className="mb-8">
+      <div className="mb-8 p-4 bg-gray-50 rounded-md shadow-sm">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">All Recipes:</h2>
         <ul className="list-disc list-inside">
           {recipes.map((recipe) => (
