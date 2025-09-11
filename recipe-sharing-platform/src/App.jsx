@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import HomePage from './components/HomePage';
-import RecipePage from './pages/RecipePage';
+import RecipeDetail from './components/RecipeDetail';
 import AddRecipePage from './pages/AddRecipePage';
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
         <main className="py-8">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/recipe/:id" element={<RecipePage />} />
+            <Route path="/recipe/:id" element={<RecipeDetail />} />
             <Route path="/add" element={<AddRecipePage />} />
           </Routes>
         </main>
