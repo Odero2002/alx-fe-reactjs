@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import RecipeList from '../components/RecipeList';
 import recipesData from '../data.json'; // Import the mock data
 
@@ -17,8 +18,10 @@ const HomePage = () => {
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">All Recipes:</h2>
         <ul className="list-disc list-inside">
           {recipes.map((recipe) => (
-            <li key={recipe.id} className="text-blue-600 hover:underline">
-              {recipe.title}
+            <li key={recipe.id}>
+              <Link to={`/recipe/${recipe.id}`} className="text-blue-600 hover:underline">
+                {recipe.title}
+              </Link>
             </li>
           ))}
         </ul>
