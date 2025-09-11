@@ -23,7 +23,9 @@ const HomePage = () => {
           ))}
         </ul>
       </div>
-      <RecipeList recipes={recipes} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <RecipeList recipes={recipes} />
+      </div>
     </div>
   );
 };
