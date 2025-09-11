@@ -9,8 +9,7 @@ const AddRecipeForm = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setRecipe({ ...recipe, [name]: value });
+    setRecipe({ ...recipe, [e.target.name]: e.target.value });
   };
 
   const validate = () => {
