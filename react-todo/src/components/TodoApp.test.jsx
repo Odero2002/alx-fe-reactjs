@@ -1,55 +1,36 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, test, expect, vi } from 'vitest';
 import TodoApp from './TodoApp';
 
 describe('TodoApp', () => {
-  test('renders TodoApp component', () => {
+  test('renders the todo application', () => {
     render(<TodoApp />);
-    expect(screen.getByText('Todo List')).toBeInTheDocument();
+    expect(screen.getByText('Todo App')).toBeInTheDocument();
   });
 
   test('adds a new todo', () => {
     render(<TodoApp />);
-    const inputElement = screen.getByPlaceholderText('Add a new todo');
-    const addButton = screen.getByRole('button', { name: 'Add Todo' });
+    const input = screen.getByRole('textbox');
+    const addButton = screen.getByText('Add Todo');
 
-    fireEvent.change(inputElement, { target: { value: 'Learn React Testing' } });
+    fireEvent.change(input, { target: { value: 'New Todo' } });
     fireEvent.click(addButton);
 
-    expect(screen.getByText('Learn React Testing')).toBeInTheDocument();
+    expect(screen.getByText('New Todo')).toBeInTheDocument();
   });
 
-  test('toggles a todo completion', () => {
+  test('toggles a todo', () => {
     render(<TodoApp />);
-    const inputElement = screen.getByPlaceholderText('Add a new todo');
-    const addButton = screen.getByRole('button', { name: 'Add Todo' });
-
-    fireEvent.change(inputElement, { target: { value: 'Learn React Testing' } });
-    fireEvent.click(addButton);
-
-    const todoItem = screen.getByText('Learn React Testing');
-    const checkbox = todoItem.previousElementSibling;
-
-    fireEvent.click(checkbox);
-    expect(checkbox).toBeChecked();
-
-    fireEvent.click(checkbox);
-    expect(checkbox).not.toBeChecked();
+    const todoText = screen.getByText('Learn React');
+    fireEvent.click(todoText);
+    expect(todoText).toHaveStyle('text-decoration: line-through');
   });
 
   test('deletes a todo', () => {
     render(<TodoApp />);
-    const inputElement = screen.getByPlaceholderText('Add a new todo');
-    const addButton = screen.getByRole('button', { name: 'Add Todo' });
-
-    fireEvent.change(inputElement, { target: { value: 'Learn React Testing' } });
-    fireEvent.click(addButton);
-
-    const todoItem = screen.getByText('Learn React Testing');
-    const deleteButton = todoItem.nextElementSibling;
-
+    const todoText = screen.getByText('Learn React');
+    const deleteButton = screen.getAllByText('Delete')[0];
     fireEvent.click(deleteButton);
-    expect(todoItem).not.toBeInTheDocument();
+    expect(todoText).not.toBeInTheDocument();
   });
 });

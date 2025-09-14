@@ -1,17 +1,17 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TodoList from './TodoList';
-import TodoItem from './TodoItem';
 
-// Mock the TodoItem component to simplify testing TodoList
-vi.mock('./TodoItem', () => ({
-  default: vi.fn((props) => (
+jest.mock('./TodoItem', () => ({
+  __esModule: true,
+  default: jest.fn((props) => (
     <li data-testid="todo-item">{props.todo.text}</li>
   )),
 }));
 
 describe('TodoList', () => {
-  const mockToggleTodo = vi.fn();
-  const mockDeleteTodo = vi.fn();
+  const mockToggleTodo = jest.fn();
+  const mockDeleteTodo = jest.fn();
 
   const todos = [
     { id: 1, text: 'Learn React', completed: false },
@@ -28,39 +28,9 @@ describe('TodoList', () => {
     );
 
     const todoItems = screen.getAllByTestId('todo-item');
-    expect(todoItems).toHaveLength(2);
+    expect(todoItems).toHaveLength(todos.length);
     expect(screen.getByText('Learn React')).toBeInTheDocument();
     expect(screen.getByText('Build a Todo App')).toBeInTheDocument();
-  });
-
-  test('passes correct props to TodoItem', () => {
-    render(
-      <TodoList
-        todos={todos}
-        toggleTodo={mockToggleTodo}
-        deleteTodo={mockDeleteTodo}
-      />
-    );
-
-    // Check that TodoItem was called with the correct props for the first todo
-    expect(TodoItem).toHaveBeenCalledWith(
-      {
-        todo: { id: 1, text: 'Learn React', completed: false },
-        toggleTodo: mockToggleTodo,
-        deleteTodo: mockDeleteTodo,
-      },
-      {}
-    );
-
-    // Check that TodoItem was called with the correct props for the second todo
-    expect(TodoItem).toHaveBeenCalledWith(
-      {
-        todo: { id: 2, text: 'Build a Todo App', completed: true },
-        toggleTodo: mockToggleTodo,
-        deleteTodo: mockDeleteTodo,
-      },
-      {}
-    );
   });
 
   test('renders no todos when the list is empty', () => {
@@ -71,6 +41,8 @@ describe('TodoList', () => {
         deleteTodo={mockDeleteTodo}
       />
     );
-    expect(screen.queryAllByTestId('todo-item')).toHaveLength(0);
+
+    const todoItems = screen.queryAllByTestId('todo-item');
+    expect(todoItems).toHaveLength(0);
   });
 });

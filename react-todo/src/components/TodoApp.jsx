@@ -3,12 +3,18 @@ import TodoList from './TodoList';
 import TodoForm from './TodoForm';
 
 const TodoApp = () => {
-  const [todos, setTodos] = useState([]);
-  const [nextId, setNextId] = useState(0);
+  const [todos, setTodos] = useState([
+    { id: 1, text: 'Learn React', completed: false },
+    { id: 2, text: 'Build a todo app', completed: false },
+  ]);
 
   const addTodo = (text) => {
-    setTodos([...todos, { id: nextId, text, completed: false }]);
-    setNextId(nextId + 1);
+    const newTodo = {
+      id: Date.now(),
+      text,
+      completed: false,
+    };
+    setTodos([...todos, newTodo]);
   };
 
   const toggleTodo = (id) => {
@@ -25,7 +31,7 @@ const TodoApp = () => {
 
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1>Todo App</h1>
       <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </div>
